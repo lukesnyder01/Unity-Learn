@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float moveSpeed = 10f;
+    private Vector3 moveDirection;
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+        moveDirection.z = Input.GetAxis("Vertical");
+        moveDirection.x = Input.GetAxis("Horizontal");
+
+
+
+        // move the plane forward at a constant rate
+        transform.Translate(moveDirection.normalized * moveSpeed * Time.deltaTime);
+
+
+
     }
 }
