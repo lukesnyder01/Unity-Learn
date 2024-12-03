@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     float verticalInput;
     float moveSpeed = 20f;
 
+    public GameObject carrotPrefab;
+
     private float xBounds = 20f;
 
     // Start is called before the first frame update
@@ -31,5 +33,9 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(xBounds, transform.position.y, transform.position.z);
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(carrotPrefab, transform.position, transform.rotation);
+        }
     }
 }
