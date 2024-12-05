@@ -5,8 +5,8 @@ using UnityEngine;
 public class RandomSpin : MonoBehaviour
 {
     private Vector3 randomSpin;
-    private float maxSpeed = 50f;
-    private float minSpeed = 10f;
+    private float maxSpeed = 200f;
+    private float minSpeed = 30f;
 
 
     void Start()
