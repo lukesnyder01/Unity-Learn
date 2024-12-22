@@ -15,6 +15,11 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            var index = Random.Range(0, animalPrefabs.Length);
+
+            Instantiate(animalPrefabs[index], new Vector3(0, 0, 20), animalPrefabs[index].transform.rotation);
+        }
     }
 }
