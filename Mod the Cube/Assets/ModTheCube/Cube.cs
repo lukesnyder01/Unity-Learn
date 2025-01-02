@@ -9,37 +9,66 @@ public class Cube : MonoBehaviour
     float rotationSpeed = 30f;
 
 
-    float bounceSpeed = 8f;
-    float bounceScale = 8f;
+    float scaleSpeed = 8f;
+    float scaleAmount = 8f;
 
-    private Vector3 defaultScale = new Vector3(3f, 3f, 3f);
+    private Vector3 defaultScale = new Vector3(2f, 5f, 10f);
+
+    private Rigidbody rigidBody;
+
+
+    float timer;
+    float maxTimer = 0.5f;
 
     void Start()
     {
-        transform.position = new Vector3(3, 4, 1);
-        transform.localScale = Vector3.one * 1.3f;
-        
-        Material material = Renderer.material;
-        
-        material.color = new Color(0.5f, 1.0f, 0.3f, 0.4f);
+        SetTimer();
+        rigidBody = transform.GetComponent<Rigidbody>();
+
+        Material material = gameObject.GetComponent<MeshRenderer>().material;
+
+        material.color = Random.ColorHSV();
+
+        transform.rotation = Random.rotation;
     }
     
     void Update()
     {
+        timer -= Time.deltaTime;
+        
+
+
+        if (timer <= 0)
+        {
+            SetTimer();
+            AddRandomForce();
+        }
+
         RotateCube();
         ChangeCubeScale();
     }
 
+    void SetTimer()
+    {
+        timer = maxTimer;
+    }
 
     void RotateCube()
     {
-        transform.Rotate(rotationSpeed * Time.deltaTime, 0.0f, 0.0f);
+        transform.Rotate(Random.Range(30, 200) * Time.deltaTime, 0.0f, 0.0f);
     }
 
     void ChangeCubeScale()
     {
-        var targetScaleMultiplier = (Mathf.Sin(Time.time * bounceSpeed) + 8) / bounceScale;
+        var targetScaleMultiplier = (Mathf.Sin(Time.time * scaleSpeed) + 8) / scaleAmount;
         transform.localScale = defaultScale * targetScaleMultiplier;
+    }
+
+    void AddRandomForce()
+    {
+        Vector3 randomDirection = Random.insideUnitSphere;
+        Vector3 targetRandomForce = randomDirection * 20;
+        rigidBody.AddForce(Vector3.up * 5 + targetRandomForce, ForceMode.Impulse);
     }
 
 
