@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8481277521639528656}
   - component: {fileID: 5115205215055189330}
   - component: {fileID: -2364658428325970976}
+  - component: {fileID: 128549155374118805}
+  - component: {fileID: 3830795793480677672}
   m_Layer: 0
   m_Name: Carrot Projectile
   m_TagString: Untagged
@@ -110,3 +112,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06aaf1238258fca4d8f40f9167b3c73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &128549155374118805
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6520146688059804195}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.14170076, y: 0.14170702, z: 0.6101245}
+  m_Center: {x: 0, y: 0.07085351, z: -0.00000005960465}
+--- !u!54 &3830795793480677672
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6520146688059804195}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
