@@ -11,6 +11,11 @@ public class DestroyOutOfBounds : MonoBehaviour
     {
         if (Mathf.Abs(transform.position.z) > verticalBound)
         {
+            if (transform.position.z < verticalBound)
+            {
+                Debug.Log("Game Over!");
+            }
+
             Destroy(gameObject);
         }
     }
