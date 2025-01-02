@@ -751,10 +751,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5472125656406305553, guid: 3183dab41e195c2469cfca89cafa3ce1, type: 3}
-      propertyPath: moveSpeed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6687182098975865952, guid: 3183dab41e195c2469cfca89cafa3ce1, type: 3}
       propertyPath: m_Name
       value: Moose
@@ -772,10 +768,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4380883977008460906, guid: a2f6b936bb6b8fe4ba34e4ed5925b7e0, type: 3}
-      propertyPath: moveSpeed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5312939286695900187, guid: a2f6b936bb6b8fe4ba34e4ed5925b7e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.628671
@@ -833,10 +825,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1082153137567651280, guid: f9f74f3c131b7c4419d5a88d66a9c06e, type: 3}
-      propertyPath: moveSpeed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 1295027228041111183, guid: f9f74f3c131b7c4419d5a88d66a9c06e, type: 3}
       propertyPath: m_Name
       value: Fox
