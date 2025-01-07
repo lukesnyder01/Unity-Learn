@@ -30,9 +30,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && playerGrounded)
         {
-            Jump();
+            if (!gameOver)
+            {
+                Jump();
+            }
         }
-
     }
 
     private void Jump()
