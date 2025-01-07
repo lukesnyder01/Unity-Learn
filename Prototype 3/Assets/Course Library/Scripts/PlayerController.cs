@@ -5,17 +5,23 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
-    private float jumpForce = 10f;
-    private float gravityModifier = 1.5f;
+    private Animator playerAnimator;
+
+    public float jumpForce = 10f;
+    public float gravityModifier = 1.5f;
+
     private bool playerGrounded;
 
     public bool gameOver = false;
+
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = transform.GetComponent<Rigidbody>();
+        playerAnimator = transform.GetComponent<Animator>();
         Physics.gravity *= gravityModifier;
     }
 
@@ -33,6 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         playerGrounded = false;
+        playerAnimator.SetTrigger("Jump_trig");
     }
     
     private void OnCollisionEnter(Collision collision)

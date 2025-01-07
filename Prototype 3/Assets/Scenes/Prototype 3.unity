@@ -470,6 +470,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacle: {fileID: 173290805098683455, guid: 84767dd39f5766441a925b0bfc513b6d, type: 3}
+  maxTimeInterval: 2
+  minTimeInterval: 1
 --- !u!4 &940214735
 Transform:
   m_ObjectHideFlags: 0
@@ -698,6 +700,22 @@ PrefabInstance:
     - target: {fileID: 7472249661319674856, guid: 75067a389b85c714c9269201ac569384, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901207878142649133, guid: 75067a389b85c714c9269201ac569384, type: 3}
+      propertyPath: jumpForce
+      value: 437.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901207878142649133, guid: 75067a389b85c714c9269201ac569384, type: 3}
+      propertyPath: gravityModifier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360129200971844457, guid: 75067a389b85c714c9269201ac569384, type: 3}
+      propertyPath: m_Mass
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360129200971844457, guid: 75067a389b85c714c9269201ac569384, type: 3}
+      propertyPath: m_Constraints
+      value: 122
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

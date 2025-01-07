@@ -9,8 +9,8 @@ public class SpawnManager : MonoBehaviour
     private Vector3 spawnPos = new Vector3(25f, 0, 0);
 
     private float timer;
-    private float maxTimeInterval = 1f;
-    private float minTimeInterval = 0.5f;
+    public float maxTimeInterval = 3f;
+    public float minTimeInterval = 1f;
 
     private PlayerController playerControllerScript;
 
