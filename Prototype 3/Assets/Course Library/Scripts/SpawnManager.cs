@@ -12,6 +12,13 @@ public class SpawnManager : MonoBehaviour
     private float maxTimeInterval = 1f;
     private float minTimeInterval = 0.5f;
 
+    private PlayerController playerControllerScript;
+
+    void Start()
+    {
+        playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
+    }
+
 
 
     // Update is called once per frame
@@ -19,7 +26,7 @@ public class SpawnManager : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        if (timer <= 0f)
+        if (timer <= 0f && playerControllerScript.gameOver == false)
         {
             timer = Random.Range(minTimeInterval, maxTimeInterval);
             Instantiate(obstacle, spawnPos, obstacle.transform.rotation);
