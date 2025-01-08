@@ -10,9 +10,12 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10f;
     public float gravityModifier = 1.5f;
 
+    public ParticleSystem smokeParticles;
+
     private bool playerGrounded;
 
     public bool gameOver = false;
+
 
 
 
@@ -63,6 +66,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Game Over");
         playerAnimator.SetBool("Death_b", true);
         playerAnimator.SetInteger("DeathType_int", 1);
+        smokeParticles.Play();
     }
 
 }
