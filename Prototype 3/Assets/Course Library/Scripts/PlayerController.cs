@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float gravityModifier = 1.5f;
 
     public ParticleSystem smokeParticles;
+    public ParticleSystem dirtParticles;
 
     private bool playerGrounded;
 
@@ -40,22 +41,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     private void Jump()
     {
+        dirtParticles.Stop();
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         playerGrounded = false;
         playerAnimator.SetTrigger("Jump_trig");
     }
-    
+
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             playerGrounded = true;
+            dirtParticles.Play();
         }
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
             EndGame();
+            dirtParticles.Stop();
         }
     }
 
