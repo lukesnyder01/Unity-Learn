@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rigidBody;
     private float forwardInput;
 
+    public Transform focalPointTransform;
     public float speed = 5f;
 
 
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         forwardInput = Input.GetAxis("Vertical");
-        rigidBody.AddForce(Vector3.forward * speed * forwardInput);
+
+        rigidBody.AddForce(focalPointTransform.forward * speed * forwardInput);
     }
 }

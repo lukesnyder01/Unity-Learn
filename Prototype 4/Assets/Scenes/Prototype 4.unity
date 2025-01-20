@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a96e4af8553fd42ae3e3a86463ea02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 50
+  rotationSpeed: 100
 --- !u!4 &282697397
 Transform:
   m_ObjectHideFlags: 0
@@ -555,6 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6208c2ebf45ee264a941e025809e82df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  focalPointTransform: {fileID: 282697397}
   speed: 4
 --- !u!1001 &2085012534532896334
 PrefabInstance:
