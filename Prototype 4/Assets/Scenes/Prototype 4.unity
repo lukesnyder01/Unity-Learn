@@ -538,6 +538,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 8878a37eb67ddac4ead51890a31d6a18, type: 3}
+--- !u!1 &1563954315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4729180680334088410, guid: 7d3a426bf1da94342be9c048641c8746, type: 3}
+  m_PrefabInstance: {fileID: 2085012534532896334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1563954321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563954315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6208c2ebf45ee264a941e025809e82df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
 --- !u!1001 &2085012534532896334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -588,12 +606,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4729180680334088410, guid: 7d3a426bf1da94342be9c048641c8746, type: 3}
       propertyPath: m_Name
-      value: Sphere
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4729180680334088410, guid: 7d3a426bf1da94342be9c048641c8746, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1563954321}
   m_SourcePrefab: {fileID: 100100000, guid: 7d3a426bf1da94342be9c048641c8746, type: 3}
 --- !u!1001 &7305732181041295649
 PrefabInstance:
