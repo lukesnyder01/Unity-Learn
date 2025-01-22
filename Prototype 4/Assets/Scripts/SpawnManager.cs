@@ -35,7 +35,6 @@ public class SpawnManager : MonoBehaviour
     private Vector3 SpawnPointInCircle()
     {
         transform.rotation = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up);
-        Debug.Log(transform.position + (transform.forward * spawnRange));
         return transform.position + (transform.forward * spawnRange);
     }
 }
