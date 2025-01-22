@@ -9,6 +9,8 @@ public class SpawnManager : MonoBehaviour
     private float timer;
     public float timeBetweenSpawns = 1f;
 
+    public float spawnRange = 4f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +26,16 @@ public class SpawnManager : MonoBehaviour
         {
             timer = timeBetweenSpawns;
 
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            Instantiate(enemyPrefab, SpawnPointInCircle(), Quaternion.identity);
         }
 
+    }
+
+
+    private Vector3 SpawnPointInCircle()
+    {
+        transform.rotation = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up);
+        Debug.Log(transform.position + (transform.forward * spawnRange));
+        return transform.position + (transform.forward * spawnRange);
     }
 }
