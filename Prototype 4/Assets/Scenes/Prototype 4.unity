@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a96e4af8553fd42ae3e3a86463ea02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 100
+  rotationSpeed: 200
 --- !u!4 &282697397
 Transform:
   m_ObjectHideFlags: 0
@@ -298,7 +298,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6302541899662571471, guid: 0a2e0eb6d934b3f408e0270a18aa6619, type: 3}
-  timeBetweenSpawns: 1
+  powerupPrefab: {fileID: 6131994833749711607, guid: 17535954a5e133749aca061fcbc4e58e, type: 3}
+  enemyCount: 0
+  timeBetweenSpawns: 5
   spawnRange: 6
 --- !u!4 &401603383
 Transform:
@@ -707,10 +709,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1328260626274520627, guid: 7d3a426bf1da94342be9c048641c8746, type: 3}
-      propertyPath: speed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1328260626274520627, guid: 7d3a426bf1da94342be9c048641c8746, type: 3}
       propertyPath: powerupIndicator
       value: 
       objectReference: {fileID: 1729756068}
@@ -762,10 +760,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7142271401658758587, guid: 7d3a426bf1da94342be9c048641c8746, type: 3}
-      propertyPath: m_Mass
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -789,7 +783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7132852141792036455, guid: 17535954a5e133749aca061fcbc4e58e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.28
+      value: 0.586
       objectReference: {fileID: 0}
     - target: {fileID: 7132852141792036455, guid: 17535954a5e133749aca061fcbc4e58e, type: 3}
       propertyPath: m_LocalPosition.z
