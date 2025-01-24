@@ -9,23 +9,31 @@ public class PlayerController : MonoBehaviour
 
     public GameObject bulletPrefab;
 
+    private float timer;
+    public float timeBetweenShots = 0.2f;
+
 
     void Update()
     {
         moveDirection.z = Input.GetAxis("Vertical");
         moveDirection.x = Input.GetAxis("Horizontal");
 
-
-
         // move the plane forward at a constant rate
         transform.Translate(moveDirection.normalized * moveSpeed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        timer -= Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.Space) && timer <= 0)
         {
-            Instantiate(bulletPrefab, transform.position, transform.rotation);
+            timer = timeBetweenShots;
+            FireWeapon();
+
         }
-
-
-
     }
+
+    private void FireWeapon()
+    {
+        Instantiate(bulletPrefab, transform.position, transform.rotation);
+    }
+
 }
