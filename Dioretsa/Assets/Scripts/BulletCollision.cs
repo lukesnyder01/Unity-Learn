@@ -10,12 +10,8 @@ public class BulletCollision : MonoBehaviour
 
         if (other.gameObject.CompareTag("Asteroid"))
         {
-            Debug.Log("Hit");
-
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
     }
-
-
 }
