@@ -4,23 +4,34 @@ using UnityEngine;
 
 public class SpawnAsteroids : MonoBehaviour
 {
+    private int[] lookup = new int[8];
+
     private float spawnPosZ = 14f;
-    private float spawnWidth = 24f;
-    private int numberOfSpawnPoints = 16;
+    public float spawnWidth = 100f;
+    public int numberOfSpawnPoints = 20;
 
     private List<Vector3> spawnPositions = new List<Vector3>();
 
-    private float timeBetweenSpawns = 0.5f;
+    public float timeBetweenSpawns = 1f;
     private float timer;
 
     public GameObject asteroidPrefab;
-    private int spawnIndex = 0;
 
     private bool[] currentCellStates;
     private bool[] nextCellStates;
 
+
     void Start()
     {
+        lookup[0b000] = 0;
+        lookup[0b001] = 1;
+        lookup[0b010] = 1;
+        lookup[0b011] = 1;
+        lookup[0b100] = 1;
+        lookup[0b101] = 0;
+        lookup[0b110] = 0;
+        lookup[0b111] = 0;
+
         InitializeCells();
 
         SetSpawnPoints();
@@ -35,7 +46,8 @@ public class SpawnAsteroids : MonoBehaviour
         if (timer < 0)
         {
             timer = timeBetweenSpawns;
-            SpawnAsteroid();
+            CalculateNextCells();
+            Spawn();
         }
     }
 
@@ -46,10 +58,60 @@ public class SpawnAsteroids : MonoBehaviour
 
         for (int i = 0; i < currentCellStates.Length; i++)
         {
-            currentCellStates[i] = Random.Range(0, 1) > 0.5;
+
+            if (i == Mathf.Floor(currentCellStates.Length / 2))
+            {
+                currentCellStates[i] = true;
+            }
+            else 
+            {
+                currentCellStates[i] = false;
+            }
+        }
+    }
+
+    private void CalculateNextCells()
+    {
+        // Loop through each cell in the current cells
+        for (int i = 0; i < numberOfSpawnPoints; i++)
+        {
+            // Look at each 3 bit neighborhood including wrapping to the other side
+          
+            int left = currentCellStates[(i - 1 + numberOfSpawnPoints) % numberOfSpawnPoints] ? 1 : 0;
+            int middle = currentCellStates[i] ? 1 : 0;
+            int right = currentCellStates[(i + 1) % numberOfSpawnPoints] ? 1 : 0;
+
+            // Turn that into a 3 bit integer
+            int pattern = (left << 2) | (middle << 1) | right;
+
+            if (lookup[pattern] == 1)
+            {
+                nextCellStates[i] = true;
+            }
+            else 
+            { 
+                nextCellStates[i] = false;
+            }
         }
 
-        Debug.Log(currentCellStates);
+
+    }
+
+
+    private void Spawn()
+    {
+        // Loop through each cell and spawn asteroids
+        for (int i = 0; i < numberOfSpawnPoints; i++)
+        {
+            currentCellStates[i] = nextCellStates[i];
+            nextCellStates[i] = false;
+
+            if (currentCellStates[i])
+            {
+                Vector3 spawnPos = spawnPositions[i];
+                Instantiate(asteroidPrefab, spawnPos, transform.rotation);
+            }
+        }
     }
 
     private void SetSpawnPoints()
@@ -70,11 +132,5 @@ public class SpawnAsteroids : MonoBehaviour
     }
 
 
-
-    void SpawnAsteroid()
-    {
-        Instantiate(asteroidPrefab, spawnPositions[spawnIndex % spawnPositions.Count], transform.rotation);
-        spawnIndex++;
-    }
 }
 
