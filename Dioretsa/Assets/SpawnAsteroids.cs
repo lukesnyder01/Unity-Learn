@@ -27,9 +27,9 @@ public class SpawnAsteroids : MonoBehaviour
         lookup[0b001] = 1;
         lookup[0b010] = 1;
         lookup[0b011] = 1;
-        lookup[0b100] = 1;
-        lookup[0b101] = 0;
-        lookup[0b110] = 0;
+        lookup[0b100] = 0;
+        lookup[0b101] = 1;
+        lookup[0b110] = 1;
         lookup[0b111] = 0;
 
         InitializeCells();
