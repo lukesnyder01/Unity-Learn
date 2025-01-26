@@ -12,7 +12,7 @@ public class IntroCutscene : MonoBehaviour
         "\"Captain, someone arranged the asteroids in a strange pattern...\"",
         "\"Do you think it could be aliens?\"",
         "\"No. It's something far, far worse...\"",
-        "\"Math nerds.\"",
+        "\"Maths nerds.\"",
     
     };
 
