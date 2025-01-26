@@ -18,8 +18,11 @@ public class PlayerController : MonoBehaviour
         moveDirection.z = Input.GetAxis("Vertical");
         moveDirection.x = Input.GetAxis("Horizontal");
 
-        // move the plane forward at a constant rate
-        transform.Translate(moveDirection.normalized * moveSpeed * Time.deltaTime);
+        transform.position += (moveDirection.normalized * moveSpeed * Time.deltaTime);
+
+        moveDirection = new Vector3(0, 0, 0);
+
+
 
         timer -= Time.deltaTime;
 

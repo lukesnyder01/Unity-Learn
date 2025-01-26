@@ -9,14 +9,14 @@ public class IntroCutscene : MonoBehaviour
     public TextMeshProUGUI textMesh;
 
     private string[] introTexts = new string[4] {
-        "Captain, someone arranged the asteroids in strange pattern...",
-        "Sir, do you think it could be aliens?",
-        "No, much worse. It's...",
-        "Nerds",
+        "\"Captain, someone arranged the asteroids in a strange pattern...\"",
+        "\"Do you think it could be aliens?\"",
+        "\"No. It's something far, far worse...\"",
+        "\"Math nerds.\"",
     
     };
 
-    private float[] textTimes = new float[4] {4, 3, 3, 5};
+    private float[] textTimes = new float[4] {5, 4, 6, 3};
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +33,8 @@ public class IntroCutscene : MonoBehaviour
         {
             textMesh.text = introTexts[i];
             yield return new WaitForSeconds(textTimes[i]);
+            textMesh.text = "";
+            yield return new WaitForSeconds(0.5f);
         }
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Game");
