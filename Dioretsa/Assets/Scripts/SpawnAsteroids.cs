@@ -115,6 +115,7 @@ public class SpawnAsteroids : MonoBehaviour
                 Vector3 spawnPos = spawnPositions[i];
 
                 GameObject asteroid = ObjectPooler.Instance.GetObject();
+                asteroid.SetActive(true);
                 asteroid.transform.position = spawnPos;
             }
         }
