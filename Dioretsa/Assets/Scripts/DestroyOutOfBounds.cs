@@ -12,11 +12,11 @@ public class DestroyOutOfBounds : MonoBehaviour
     {
         if (transform.position.z > topBound)
         {
-            Destroy(gameObject);
+            ObjectPooler.Instance.ReturnObject(gameObject);
         }
         if (transform.position.z < bottomBound)
         {
-            Destroy(gameObject);
+            ObjectPooler.Instance.ReturnObject(gameObject);
         }    
     }
 }

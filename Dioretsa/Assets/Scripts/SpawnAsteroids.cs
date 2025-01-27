@@ -25,10 +25,10 @@ public class SpawnAsteroids : MonoBehaviour
     {
         lookup[0b000] = 0;
         lookup[0b001] = 1;
-        lookup[0b010] = 1;
+        lookup[0b010] = 0;
         lookup[0b011] = 1;
-        lookup[0b100] = 0;
-        lookup[0b101] = 1;
+        lookup[0b100] = 1;
+        lookup[0b101] = 0;
         lookup[0b110] = 1;
         lookup[0b111] = 0;
 
@@ -49,6 +49,21 @@ public class SpawnAsteroids : MonoBehaviour
             CalculateNextCells();
             Spawn();
         }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            RandomizeRule();
+        }
+
+        if (Input.GetKey(KeyCode.T))
+        {
+            RandomizeBuffer();
+        }
+
+        if (Input.GetKey(KeyCode.Y))
+        {
+            ResetBuffer();
+        }
     }
 
     private void InitializeCells()
@@ -56,18 +71,7 @@ public class SpawnAsteroids : MonoBehaviour
         currentCellStates = new bool[numberOfSpawnPoints];
         nextCellStates = new bool[numberOfSpawnPoints];
 
-        for (int i = 0; i < currentCellStates.Length; i++)
-        {
-
-            if (i == Mathf.Floor(currentCellStates.Length / 2))
-            {
-                currentCellStates[i] = true;
-            }
-            else 
-            {
-                currentCellStates[i] = false;
-            }
-        }
+        ResetBuffer();
     }
 
     private void CalculateNextCells()
@@ -76,7 +80,7 @@ public class SpawnAsteroids : MonoBehaviour
         for (int i = 0; i < numberOfSpawnPoints; i++)
         {
             // Look at each 3 bit neighborhood including wrapping to the other side
-          
+
             int left = currentCellStates[(i - 1 + numberOfSpawnPoints) % numberOfSpawnPoints] ? 1 : 0;
             int middle = currentCellStates[i] ? 1 : 0;
             int right = currentCellStates[(i + 1) % numberOfSpawnPoints] ? 1 : 0;
@@ -88,8 +92,8 @@ public class SpawnAsteroids : MonoBehaviour
             {
                 nextCellStates[i] = true;
             }
-            else 
-            { 
+            else
+            {
                 nextCellStates[i] = false;
             }
         }
@@ -109,7 +113,9 @@ public class SpawnAsteroids : MonoBehaviour
             if (currentCellStates[i])
             {
                 Vector3 spawnPos = spawnPositions[i];
-                Instantiate(asteroidPrefab, spawnPos, transform.rotation);
+
+                GameObject asteroid = ObjectPooler.Instance.GetObject();
+                asteroid.transform.position = spawnPos;
             }
         }
     }
@@ -119,7 +125,7 @@ public class SpawnAsteroids : MonoBehaviour
         // Fill spawn point list with spawn points
         // Start from the left and move to the right
 
-        float startX = - (spawnWidth / 2);
+        float startX = -(spawnWidth / 2);
         float distanceBetweenSpawns = spawnWidth / numberOfSpawnPoints;
 
         for (int i = 0; i < numberOfSpawnPoints; i++)
@@ -131,6 +137,52 @@ public class SpawnAsteroids : MonoBehaviour
         }
     }
 
+    private void RandomizeRule()
+    {
+        for (int i = 0; i < lookup.Length; i++)
+        {
+            if (Mathf.Floor(Random.Range(0, 100)) < 50)
+            {
+                lookup[i] = 1;
+            }
+            else
+            {
+                lookup[i] = 0;
+            }
+        }
+    }
+
+    private void RandomizeBuffer()
+    {
+        for (int i = 0; i < currentCellStates.Length; i++)
+        {
+            if (Mathf.Floor(Random.Range(0, 100)) < 50)
+            {
+                currentCellStates[i] = true;
+            }
+            else
+            {
+                currentCellStates[i] = false;
+            }
+            
+        }
+    }
+
+    private void ResetBuffer()
+    {
+        for (int i = 0; i < currentCellStates.Length; i++)
+        {
+
+            if (i == Mathf.Floor(currentCellStates.Length / 2))
+            {
+                currentCellStates[i] = true;
+            }
+            else
+            {
+                currentCellStates[i] = false;
+            }
+        }
+    }
 
 }
 

@@ -15,10 +15,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        moveDirection.z = Input.GetAxis("Vertical");
-        moveDirection.x = Input.GetAxis("Horizontal");
+        moveDirection.z = Input.GetAxisRaw("Vertical");
+        moveDirection.x = Input.GetAxisRaw("Horizontal");
 
-        transform.position += (moveDirection.normalized * moveSpeed * Time.deltaTime);
+        transform.Translate(moveDirection.normalized * moveSpeed * Time.deltaTime);
 
         moveDirection = new Vector3(0, 0, 0);
 
