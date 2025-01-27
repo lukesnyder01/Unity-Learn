@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,7 +30,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && timer <= 0)
         {
             timer = timeBetweenShots;
-            FireWeapon();
+            FireWeapon(0f);
+            FireWeapon(8f);
+            FireWeapon(-8f);
         }
 
         if (Input.GetKey(KeyCode.Escape))
@@ -38,9 +41,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void FireWeapon()
+    private void FireWeapon(float fireAngle)
     {
-        Instantiate(bulletPrefab, transform.position, transform.rotation);
+        Vector3 forwardVector = transform.forward;
+        Quaternion rotation = transform.rotation * Quaternion.Euler(0, fireAngle, 0);
+        Instantiate(bulletPrefab, transform.position, rotation);
     }
 
 }

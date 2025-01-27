@@ -1,10 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class BulletCollision : MonoBehaviour
+public class BulletController : MonoBehaviour
 {
     private float despawnZ = 20;
+    private float speed = 15f;
+    private Vector3 moveDirection;
+
+    private void Start()
+    {
+        moveDirection = transform.forward;
+    }
+
 
     void OnTriggerEnter(Collider other)
     {
@@ -16,8 +25,11 @@ public class BulletCollision : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
+        transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
+
         if (transform.position.z > despawnZ)
         { 
             Destroy(this.gameObject);

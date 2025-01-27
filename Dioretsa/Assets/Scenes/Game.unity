@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc9e93c684b233409ce2a92cefecefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialPoolSize: 100
+  initialPoolSize: 1000
   objectPrefab: {fileID: 8790031730827094855, guid: 32a5a8f4b0e55f64e88d6cf2fc0e2f73, type: 3}
 --- !u!4 &571177102
 Transform:
@@ -323,7 +323,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 14
+  orthographic size: 16
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -465,7 +465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3199831162481517259, guid: c91ac6947802a01469af5af30d8cca21, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.5
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 3199831162481517259, guid: c91ac6947802a01469af5af30d8cca21, type: 3}
       propertyPath: m_LocalRotation.w

@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 6726774440262510279}
   - component: {fileID: 6174103952860334997}
   - component: {fileID: 6605526440459808480}
-  - component: {fileID: 386053863756645840}
   - component: {fileID: 7221399605641183320}
-  - component: {fileID: 1826244892024804016}
   - component: {fileID: 2407364229517686148}
+  - component: {fileID: 2708147938237538142}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -87,20 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &386053863756645840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5968502795702267850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e12fa49b271e09644bcbffdcac7b4c23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 20
-  moveDirection: {x: -0, y: -0, z: 1}
 --- !u!135 &7221399605641183320
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -122,18 +107,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0.21}
---- !u!114 &1826244892024804016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5968502795702267850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79abc6d7a1108384da2bb5f398e7cd71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &2407364229517686148
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -161,3 +134,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2708147938237538142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5968502795702267850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79abc6d7a1108384da2bb5f398e7cd71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
