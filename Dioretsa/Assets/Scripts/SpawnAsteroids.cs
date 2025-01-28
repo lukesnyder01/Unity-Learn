@@ -20,17 +20,20 @@ public class SpawnAsteroids : MonoBehaviour
     private bool[] currentCellStates;
     private bool[] nextCellStates;
 
+    private int ruleIndex = 0;
+
+    private string[] rules = new string[4] 
+    {
+        "01111000",
+        "01101001",
+        "01011010",
+        "00101101",
+    };
+
 
     void Start()
     {
-        lookup[0b000] = 0;
-        lookup[0b001] = 1;
-        lookup[0b010] = 0;
-        lookup[0b011] = 1;
-        lookup[0b100] = 1;
-        lookup[0b101] = 0;
-        lookup[0b110] = 1;
-        lookup[0b111] = 0;
+        SetRule(ruleIndex);
 
         InitializeCells();
 
@@ -50,17 +53,24 @@ public class SpawnAsteroids : MonoBehaviour
             Spawn();
         }
 
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
+            ruleIndex++;
+            if (ruleIndex >= rules.Length)
+            {
+                ruleIndex = 0;
+            }
+
+            //SetRule(ruleIndex);
             RandomizeRule();
         }
 
-        if (Input.GetKey(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             RandomizeBuffer();
         }
 
-        if (Input.GetKey(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.Y))
         {
             ResetBuffer();
         }
@@ -137,6 +147,17 @@ public class SpawnAsteroids : MonoBehaviour
             spawnPositions.Add(spawnPos);
         }
     }
+
+    private void SetRule(int ruleIndex)
+    { 
+        for (int i = 0; i < 8; i++)
+        {
+            string numberString = rules[ruleIndex];
+            lookup[i] = int.Parse(numberString[i].ToString());
+        }
+    }
+
+
 
     private void RandomizeRule()
     {

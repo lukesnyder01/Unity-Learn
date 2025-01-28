@@ -323,7 +323,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 16
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -412,7 +412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8464445276625170303, guid: ecce8ea894cb17b4da083085670723e0, type: 3}
       propertyPath: spawnWidth
-      value: 70
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8464445276625170303, guid: ecce8ea894cb17b4da083085670723e0, type: 3}
       propertyPath: timeBetweenSpawns
@@ -420,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8464445276625170303, guid: ecce8ea894cb17b4da083085670723e0, type: 3}
       propertyPath: numberOfSpawnPoints
-      value: 120
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

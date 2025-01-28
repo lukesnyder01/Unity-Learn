@@ -31,8 +31,10 @@ public class PlayerController : MonoBehaviour
         {
             timer = timeBetweenShots;
             FireWeapon(0f);
-            FireWeapon(8f);
-            FireWeapon(-8f);
+            FireWeapon(10f);
+            FireWeapon(-10f);
+            FireWeapon(20f);
+            FireWeapon(-20f);
         }
 
         if (Input.GetKey(KeyCode.Escape))
