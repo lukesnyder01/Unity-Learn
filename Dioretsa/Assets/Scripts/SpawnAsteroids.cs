@@ -22,8 +22,10 @@ public class SpawnAsteroids : MonoBehaviour
 
     private int ruleIndex = 0;
 
-    private string[] rules = new string[4] 
+    private string[] rules = new string[6]
     {
+        "10010010",
+        "01001001",
         "01111000",
         "01101001",
         "01011010",
@@ -60,9 +62,10 @@ public class SpawnAsteroids : MonoBehaviour
             {
                 ruleIndex = 0;
             }
-
-            //SetRule(ruleIndex);
-            RandomizeRule();
+            Debug.Log(ruleIndex);
+            Debug.Log(rules[ruleIndex]);
+            SetRule(ruleIndex);
+            //RandomizeRule();
         }
 
         if (Input.GetKeyDown(KeyCode.T))
