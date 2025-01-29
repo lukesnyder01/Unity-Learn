@@ -7,6 +7,8 @@ public class Target : MonoBehaviour
 {
     public int scoreValue;
 
+    public ParticleSystem exploxionParticles;
+
     private Rigidbody rb;
     private GameManager gameManager;
 
@@ -33,6 +35,7 @@ public class Target : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
+        Instantiate(exploxionParticles, transform.position, transform.rotation);
         gameManager.AddScore(scoreValue);
     }
 
