@@ -1,4 +1,5 @@
 using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public class Target : MonoBehaviour
     private float maxTorque = 10;
 
     private float xSpawnRange = 4;
-    private float ySpawnPos = -4;
+    private float ySpawnPos = -2;
 
     void Start()
     {
@@ -22,6 +23,17 @@ public class Target : MonoBehaviour
         rb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
         transform.position = RandomSpawnPosition();
     }
+
+    private void OnMouseDown()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
+    }
+
 
     Vector3 RandomForce()
     {
