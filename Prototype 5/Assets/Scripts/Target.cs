@@ -13,7 +13,7 @@ public class Target : MonoBehaviour
     private float maxTorque = 10;
 
     private float xSpawnRange = 4;
-    private float ySpawnPos = -6;
+    private float ySpawnPos = -4;
 
     void Start()
     {
