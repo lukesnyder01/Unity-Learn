@@ -14,14 +14,19 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> targets;
 
+    public GameObject titleScreen;
 
-    public bool isGameActive;
+    public bool isGameActive = false;
 
     float spawnRate = 1f;
 
 
-    void Start()
+
+
+    public void StartGame(int difficulty)
     {
+        spawnRate /= difficulty;
+        titleScreen.SetActive(false);
         isGameActive = true;
         score = 0;
         scoreText.text = "Score: " + score;
